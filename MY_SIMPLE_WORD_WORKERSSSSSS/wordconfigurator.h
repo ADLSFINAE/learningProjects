@@ -11,8 +11,10 @@ public:
     WordConfigurator();
 
     void addTable(QAxObject *document, QAxObject* selection, int row, int column);
+    void insertIntoCell(QAxObject* table, int row, int col, const QString& text);
 private:
     QAxObject* rangeAfter{nullptr};
+    int globalTargetRow = 0;
 };
 
 #endif // WORDCONFIGURATOR_H

@@ -25,7 +25,6 @@ private:
     QAxObject* _pDocument;
 
     QAxObject* _pActiveList;
-    QAxObject* _pActiveList2;
 };
 
 #endif // WORDCREATOR_H

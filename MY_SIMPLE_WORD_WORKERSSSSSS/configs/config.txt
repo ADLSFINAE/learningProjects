@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables>
+    <table rows="1" cols="1">
+        <data>
+            <row>
+                <cell>1. Параметры тока</cell>
+            </row>
+        </data>
+    </table>
+    <table rows="3" cols="2">
+        <data>
+            <row>
+                <cell>Потребляемый ток лежит в пределах от 1.5 до 3.5 А</cell>
+				<cell></cell>
+            </row>
+            <row>
+                <cell>Потребляемое напряжение меньше 20 В</cell>
+				<cell></cell>
+            </row>
+			<row>
+                <cell>Потребляемое напряжение (3.5 ± 0.5) В</cell>
+				<cell></cell>
+            </row>
+        </data>
+    </table>
+	<table rows="1" cols="1">
+        <data>
+            <row>
+                <cell>2. Параметры тока</cell>
+            </row>
+        </data>
+    </table>
+    <table rows="3" cols="2">
+        <data>
+            <row>
+                <cell>Потребляемый ток лежит в пределах от 1.5 до 3.5 А</cell>
+				<cell></cell>
+            </row>
+            <row>
+                <cell>Потребляемое напряжение меньше 20 В</cell>
+				<cell></cell>
+            </row>
+			<row>
+                <cell>Потребляемое напряжение (3.5 ± 0.5) В</cell>
+				<cell></cell>
+            </row>
+        </data>
+    </table>
+	<table rows="1" cols="1">
+        <data>
+            <row>
+                <cell>3. Параметры тока</cell>
+            </row>
+        </data>
+    </table>
+    <table rows="3" cols="2">
+        <data>
+            <row>
+                <cell>Потребляемый ток лежит в пределах от 1.5 до 3.5 А</cell>
+				<cell></cell>
+            </row>
+            <row>
+                <cell>Потребляемое напряжение меньше 20 В</cell>
+				<cell></cell>
+            </row>
+			<row>
+                <cell>Потребляемое напряжение (3.5 ± 0.5) В</cell>
+				<cell></cell>
+            </row>
+        </data>
+    </table>
+</tables>

@@ -17,11 +17,11 @@ void WordCreator::initObject()
     _pWordProgrammObject->setProperty("DisplayAlerts", false);
 
     _pDocumentsOfWordProgrammObject = _pWordProgrammObject->querySubObject("Documents");
+
     _pDocument = _pDocumentsOfWordProgrammObject->querySubObject("Add()");
 
-    // Получаем активную страницу
     _pActiveList = _pWordProgrammObject->querySubObject("Selection");
-    _pActiveList2 = _pWordProgrammObject->querySubObject("Selection");
+
 }
 
 QAxObject *WordCreator::getWordProgrammObject() const

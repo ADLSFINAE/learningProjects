@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     wordconfigurator.cpp \
-    wordcreator.cpp
+    wordcreator.cpp \
+    xmlworker.cpp
 
 HEADERS += \
 	wordconfigurator.h \
-	wordcreator.h
+	wordcreator.h \
+	xmlworker.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -23,3 +25,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES +=
+
+RESOURCES += \
+	res.qrc

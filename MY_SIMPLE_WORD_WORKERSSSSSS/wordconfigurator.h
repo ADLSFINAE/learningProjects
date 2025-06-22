@@ -10,8 +10,12 @@ class WordConfigurator : public QObject
 public:
     WordConfigurator();
 
-    void addTable(QAxObject *document, QAxObject* selection, int row, int column);
+    void addTable(QAxObject *document, QAxObject* selection, int row, int column, QVector<QVector<QString>> data);
+
     void insertIntoCell(QAxObject* table, int row, int col, const QString& text);
+
+    int getGlobalTargetRow() const {return globalTargetRow;}
+
 private:
     QAxObject* rangeAfter{nullptr};
     int globalTargetRow = 0;

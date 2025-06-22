@@ -5,7 +5,8 @@ WordConfigurator::WordConfigurator()
 
 }
 
-void WordConfigurator::addTable(QAxObject *document, QAxObject* selection, int rows, int columns)
+void WordConfigurator::addTable(QAxObject *document, QAxObject* selection,
+                                int rows, int columns, QVector<QVector<QString>> data)
 {
     QAxObject* range = document->querySubObject("Range()");
     QAxObject* tables = document->querySubObject("Tables");
@@ -29,11 +30,9 @@ void WordConfigurator::addTable(QAxObject *document, QAxObject* selection, int r
     for(int i = 1; i <= rows; i++) {
         globalTargetRow++;
         for(int j = 1; j <= columns; j++) {
-            qDebug()<<globalTargetRow<<j;
-            insertIntoCell(table1, globalTargetRow, j, "ABCDEFGHI");
+            insertIntoCell(table1, globalTargetRow, j, data[i - 1][j - 1]);
         }
     }
-
 }
 
 void WordConfigurator::insertIntoCell(QAxObject *table, int row, int col, const QString &text)
@@ -51,3 +50,4 @@ void WordConfigurator::insertIntoCell(QAxObject *table, int row, int col, const 
         delete cell;
     }
 }
+

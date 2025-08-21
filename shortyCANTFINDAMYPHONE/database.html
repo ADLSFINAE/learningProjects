@@ -1,0 +1,135 @@
+<!-- database.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестовая база данных</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .database-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .database-table th,
+        .database-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        .database-table th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        .database-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .database-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-ok {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status-warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Тестовая база данных оборудования</h1>
+    
+    <table class="database-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Устройство</th>
+                <th>Тип</th>
+                <th>Серийный номер</th>
+                <th>Статус</th>
+                <th>Дата тестирования</th>
+                <th>Результаты</th>
+                <th>Оператор</th>
+            </tr>
+        </thead>
+        <tbody id="data-body">
+            <!-- Данные будут добавляться через JavaScript -->
+            <tr>
+                <td>1</td>
+                <td>БПИ-11.012</td>
+                <td>Блок питания</td>
+                <td>SN001234</td>
+                <td><span class="status status-ok">OK</span></td>
+                <td>2024-01-15 10:30</td>
+                <td>Все тесты пройдены</td>
+                <td>Иванов И.И.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>БПИ-11.014</td>
+                <td>Блок питания</td>
+                <td>SN005678</td>
+                <td><span class="status status-error">Ошибка</span></td>
+                <td>2024-01-15 11:45</td>
+                <td>Обнаружены неисправности</td>
+                <td>Петров П.П.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Функция для добавления новой строки через URL параметры
+        function addDataFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            if (urlParams.toString()) {
+                const newRow = document.createElement('tr');
+                
+                newRow.innerHTML = `
+                    <td>${urlParams.get('id') || 'Новый'}</td>
+                    <td>${urlParams.get('device') || 'Не указано'}</td>
+                    <td>${urlParams.get('type') || 'Не указано'}</td>
+                    <td>${urlParams.get('serial') || 'Не указано'}</td>
+                    <td><span class="status status-${urlParams.get('status') || 'warning'}">${urlParams.get('status') || 'В процессе'}</span></td>
+                    <td>${new Date().toLocaleString()}</td>
+                    <td>${urlParams.get('results') || 'Тестирование'}</td>
+                    <td>${urlParams.get('operator') || 'Система'}</td>
+                `;
+                
+                document.getElementById('data-body').appendChild(newRow);
+                
+                // Очищаем URL параметры после добавления
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+
+        // Добавляем данные при загрузке страницы
+        window.onload = addDataFromUrl;
+    </script>
+</body>
+</html>
